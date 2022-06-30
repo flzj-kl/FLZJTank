@@ -1,4 +1,7 @@
-package com.flzj.tank;
+package com.flzj.tank.entity;
+
+
+import com.flzj.tank.screen.GamePanel;
 
 public class Shoot implements Runnable{
     private int x;
@@ -39,7 +42,7 @@ public class Shoot implements Runnable{
 
     @Override
     public void run() {
-        while(isLive && MyPanel.home.isLive()){
+        while(isLive && GamePanel.home.isLive()){
             switch (direct){
                 case 0:     //上
                     y -= speed;

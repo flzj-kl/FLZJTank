@@ -1,8 +1,8 @@
-package com.flzj.tank.common;
+package com.flzj.tank.judging;
 
-import com.flzj.tank.Tank;
-import com.flzj.tank.Wall;
-import com.flzj.tank.Water;
+import com.flzj.tank.entity.Tank;
+import com.flzj.tank.entity.Wall;
+import com.flzj.tank.entity.Water;
 
 import java.util.Vector;
 

@@ -1,19 +1,58 @@
 package com.flzj.tank.screen;
 
-import com.flzj.tank.FLZJTank2;
-import org.w3c.dom.css.RGBColor;
+import com.flzj.tank.FLZJTankFrame;
+
+import com.flzj.tank.draw.DrawTank;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class FirstPanel extends JPanel {
-
+    // 按钮罢了
     private JButton btn1 = new JButton("开始游戏");
     private JButton btn2 = new JButton("继续游戏");
+
+    // 从FLZJTank获取的属性
+    private JFrame jFrame = FLZJTankFrame.jFrame;
+    private GamePanel gamePanel = null;
+
+    // 初始代码块，用于给按钮加上监听器和给组件加上按钮
+    {
+        btn1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btn1.setVisible(false);
+                btn2.setVisible(false);
+                FirstPanel firstPanel = FLZJTankFrame.firstPanel;
+                jFrame.remove(firstPanel);
+                gamePanel = new GamePanel("1");
+                Thread myPanelThread = new Thread(gamePanel);
+                myPanelThread.start();
+                jFrame.add(gamePanel);
+                jFrame.addKeyListener(gamePanel);
+                // jFrame.remove(myPanel);
+                // jFrame.removeKeyListener(myPanel);
+                jFrame.repaint();
+            }
+        });
+        btn2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btn1.setVisible(false);
+                btn2.setVisible(false);
+                FirstPanel firstPanel = FLZJTankFrame.firstPanel;
+                jFrame.remove(firstPanel);
+                gamePanel = new GamePanel("2");
+                new Thread(gamePanel).start();
+                jFrame.add(gamePanel);
+                jFrame.addKeyListener(gamePanel);
+                jFrame.repaint();
+            }
+        });
+    }
+
 
     /**
      * 画封面
@@ -21,21 +60,23 @@ public class FirstPanel extends JPanel {
      */
     @Override
     public void paint(Graphics g) {
+        // 背景图片
         g.drawImage(new ImageIcon("src/com/flzj/tank/imgs/Cover.png").getImage(),75,25,null);
         g.setFont(new Font("Serif",Font.BOLD,180));
         g.setColor(Color.red);
-        String title = "坦克大战";
-        g.drawString(title,275,300);
+        String title = "负离子价坦克";
+        g.drawString(title,75,300);
 
-        int x = 400,y = 500;
-        drawTank(x,y,g);
+        // 画坦克作为背景
+        int x = 350,y = 500;
+        DrawTank.drawRight(x,y,g);
         x = 300;
         y = 75;
         g.setColor(Color.yellow);
         for(int i = x ; i < 1000 ; i += 80)
-            drawTank(i,y,g);
+            DrawTank.drawUp(i,y,g);
 
-        // 设置按钮
+        // 画按钮
         btn1.setFont(new Font("宋体",Font.BOLD,50));
         btn2.setFont(new Font("宋体",Font.BOLD,50));
         btn1.setBounds(450,450,400,150);
@@ -44,20 +85,12 @@ public class FirstPanel extends JPanel {
         btn2.requestFocus();
         btn1.requestFocus();
     }
+
+    // 获取按钮
     public JButton getBtn1() {
         return btn1;
     }
-
     public JButton getBtn2() {
         return btn2;
-    }
-
-    // 画坦克
-    public void drawTank(int x,int y,Graphics g) {
-        g.fill3DRect(x,y,10,60,false);//左轮
-        g.fill3DRect(x + 30,y,10,60,false);//右轮
-        g.fill3DRect(x + 10 , y +10 , 20 ,40 ,false);//机身
-        g.fillOval(x + 10 , y + 20 , 20 , 20);  //机盖
-        g.drawLine(x + 20 , y  , x + 20 , y + 40);       //炮口*/
     }
 }

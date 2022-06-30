@@ -1,4 +1,4 @@
-package com.flzj.tank;
+package com.flzj.tank.entity;
 
 public class Water {
     int x;

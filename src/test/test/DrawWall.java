@@ -1,4 +1,4 @@
-import com.flzj.tank.MyPanel;
+
 
 import javax.swing.*;
 import java.awt.*;

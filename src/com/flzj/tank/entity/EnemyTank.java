@@ -1,13 +1,15 @@
-package com.flzj.tank;
+package com.flzj.tank.entity;
 
-import com.flzj.tank.common.Touch;
+import com.flzj.tank.screen.GamePanel;
+import com.flzj.tank.judging.Touch;
+
 
 import java.util.Vector;
 
 public class EnemyTank extends Tank implements Runnable {
     private boolean isLive = true;
     private Shoot shoot = null;
-    Vector<Shoot> shoots = new Vector<>();
+    public Vector<Shoot> shoots = new Vector<>();
     //增加成员 enemyTanks 可以得到敌人坦克的Vector
     Vector<EnemyTank> enemyTanks = new Vector<>();
     // 可以获取到水和墙的数组
@@ -238,7 +240,7 @@ public class EnemyTank extends Tank implements Runnable {
 
     @Override
     public void run() {
-        while (MyPanel.home.isLive()) {
+        while (GamePanel.home.isLive()) {
             //敌方坦克运动   敌方坦克射击
             switch (getDirect()) {
                 case 0:

@@ -1,10 +1,10 @@
-package com.flzj.tank;
+package com.flzj.tank.entity;
 
 import java.util.Vector;
 
 public class Hero extends Tank {
-    Shoot shoot = null;
-    Vector<Shoot> heroShoots = new Vector<>();
+    public Shoot shoot = null;
+    public Vector<Shoot> heroShoots = new Vector<>();
     private static final int MAX_AMMO_NUM = 5;
     private boolean isHeroLive = true;
 

@@ -1,13 +1,20 @@
-package com.flzj.tank;
+package com.flzj.tank.entity;
 
-public class Home {
+public class Wall {
     private int x;
     private int y;
-    public static boolean isLive = true;
-
-    public Home(int x, int y) {
+    boolean isLive = true;
+    public Wall(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public boolean isLive() {
+        return isLive;
+    }
+
+    public void setLive(boolean live) {
+        isLive = live;
     }
 
     public int getX() {
@@ -24,13 +31,5 @@ public class Home {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public boolean isLive() {
-        return isLive;
-    }
-
-    public void setLive(boolean live) {
-        isLive = live;
     }
 }

@@ -1,12 +1,13 @@
 package com.flzj.tank;
 
+import com.flzj.tank.entity.EnemyTank;
+
 import java.io.*;
 import java.util.Vector;
 
 /*
         用于记录信息和文字交互
  */
-//@SuppressWarnings({"all"})
 public class Recorder{
     //定义变量，用来记录我方击败坦克
     private static int allEnemyTank = 0;
@@ -54,7 +55,7 @@ public class Recorder{
     }
 
 
-    //增加一个方法，当游戏退出时，保存文件
+/*    //增加一个方法，当游戏退出时，保存文件
     public static void keepRecode(){
         try {
             bw = new BufferedWriter(new FileWriter(recodeFile));
@@ -82,7 +83,7 @@ public class Recorder{
                 }
             }
         }
-    }
+    }*/
 
 
     public static int getAllEnemyTank() {
