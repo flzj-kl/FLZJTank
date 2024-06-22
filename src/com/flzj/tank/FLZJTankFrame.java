@@ -22,7 +22,7 @@ public class FLZJTankFrame {
 
     public FLZJTankFrame(){
         // 框架的基本信息
-        jFrame = new JFrame("负离子价坦克");
+        jFrame = new JFrame("坦克大战");
         jFrame.setSize(1300,950);
         jFrame.setIconImage(new ImageIcon("src/com/flzj/tank/imgs/FLZJTank.png").getImage());
         jFrame.setLocation(300,50);

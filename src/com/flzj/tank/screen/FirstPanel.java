@@ -64,8 +64,8 @@ public class FirstPanel extends JPanel {
         g.drawImage(new ImageIcon("src/com/flzj/tank/imgs/Cover.png").getImage(),75,25,null);
         g.setFont(new Font("Serif",Font.BOLD,180));
         g.setColor(Color.red);
-        String title = "负离子价坦克";
-        g.drawString(title,75,300);
+        String title = "坦克大战";
+        g.drawString(title,250,325);
 
         // 画坦克作为背景
         int x = 350,y = 500;
